@@ -1,21 +1,36 @@
 # LLM-post-call
 It shows how to manage post call analysis.
 
-## Transcribe를 이용한 변환
+## Transcribe의 Post-call Analytics를 이용한 변환
 
-```python
+API Request는 아래와 같습니다. 
+
+```java
 {
-    "TranscriptionJobName": "TestCallCenter",
-    "LanguageCode": "en-US",
-    "MediaSampleRateHertz": 8000,
-    "MediaFormat": "wav",
+    "CallAnalyticsJobName": "myPostCallTest",
     "Media": {
         "MediaFileUri": "s3://filesharing-ksdyb/post-call/sample-call-1.wav"
-    }
+    },
+    "Settings": {
+        "LanguageOptions": [
+            "en-US"
+        ]
+    },
+    "ChannelDefinitions": [
+        {
+            "ChannelId": 1,
+            "ParticipantRole": "AGENT"
+        },
+        {
+            "ChannelId": 0,
+            "ParticipantRole": "CUSTOMER"
+        }
+    ],
+    "DataAccessRoleArn": "arn:aws:iam::677146750822:role/service-role/AmazonTranscribeServiceRoleFullAccess-TrascribeRoleForPostCall"
 }
 ```
 
-응답의 형태는 아래와 같습니다. response['Transcript'][0] 아래에 Content로 대화의 내용을 ParticipantRole로 대화의 상대를 확인할 수 있습니다.
+이때의 응답의 형태는 아래와 같습니다. response['Transcript'][0] 아래에 Content로 대화의 내용을 ParticipantRole로 대화의 상대를 확인할 수 있습니다.
 
 ![image](https://github.com/kyopark2014/LLM-post-call/assets/52392004/5cf05d92-ccfc-4fec-99c0-febd1b9a5e85)
 
