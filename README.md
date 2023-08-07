@@ -1,5 +1,4 @@
-# LLM-post-call
-It shows how to manage post call analysis.
+# LLM을 위한 post-call 분석
 
 ## Transcribe의 Post-call Analytics를 이용한 변환
 
