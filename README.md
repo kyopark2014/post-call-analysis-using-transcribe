@@ -126,7 +126,25 @@ IAM Role인 "AmazonTranscribeServiceRoleFullAccess-TrascribeRoleForPostCall"은 
 
 ![image](https://github.com/kyopark2014/LLM-post-call/assets/52392004/5cf05d92-ccfc-4fec-99c0-febd1b9a5e85)
 
+이것을 구현하면 아래와 같습니다.
 
+```python
+response = client.get_call_analytics_job(
+    CallAnalyticsJobName=CallAnalyticsJobName
+)
+TranscriptFileUri = response['CallAnalyticsJob']['Transcript']['TranscriptFileUri']
+
+import requests
+
+result = requests.get(TranscriptFileUri).json()
+transcript = result['Transcript']
+
+content = ""
+for t in transcript:
+    content = content+f"{t['ParticipantRole']}: {t['Content']}\n"
+
+return content
+```
 
 ## Reference
 [boto3 - start_transcription_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_transcription_job.html#)
