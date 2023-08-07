@@ -131,6 +131,8 @@ IAM Role인 "AmazonTranscribeServiceRoleFullAccess-TrascribeRoleForPostCall"은 
 ## Reference
 [boto3 - start_transcription_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_transcription_job.html#)
 
+[boto3 - get_call_analytics_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/get_call_analytics_job.html)
+
 [boto3 - get_transcription_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/get_transcription_job.html)
 
 [boto3 - start_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amplify/client/start_job.html#)
