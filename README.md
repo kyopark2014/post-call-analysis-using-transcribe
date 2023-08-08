@@ -1,4 +1,4 @@
-# LLM을 위한 post-call 분석
+# Transcribe를 이용한 Call Analysis
 
 ## Transcribe의 Post-call Analytics를 이용한 변환
 
